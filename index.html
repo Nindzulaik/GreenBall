@@ -1,3 +1,25 @@
+<!-- ==================== ГЛАВНЫЙ БАННЕР ==================== -->
+<header class="hero">
+    ...
+</header>
+
+<!-- ==================== КАТАЛОГ ОБЪЯВЛЕНИЙ ==================== -->
+<section id="catalog" class="py-5">
+    ...
+</section>
+
+<!-- TODO: Позже добавить настоящие фото зданий вместо picsum -->
+
+<!-- ==================== ФОРМА РАЗМЕЩЕНИЯ ОБЪЯВЛЕНИЯ ==================== -->
+<section id="sell" class="py-5 bg-white">
+    ...
+</section>
+
+<!-- 
+    Примечание от Илимбека:
+    Сейчас форма просто показывает alert.
+    В будущем здесь будет отправка на сервер.
+-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,14 +33,12 @@
             background-color: #f8f9fa;
         }
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
-                        url('https://too.kg/wp-content/uploads/15762598709211023_e489-1024x576.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://picsum.photos/1920/1080?mother+daughter+park') no-repeat center center;
             background-size: cover;
-            background-position: center;
             color: white;
-            padding: 180px 0;
+            padding: 160px 0;
             text-align: center;
-            min-height: 100vh;
         }
         .navbar-brand {
             font-weight: bold;
@@ -38,9 +58,6 @@
         }
         footer {
             background-color: #1a3c34;
-        }
-        .contact-info {
-            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -64,12 +81,12 @@
     </div>
 </nav>
 
-<!-- Главный баннер — ТВОЯ ФОТОГРАФИЯ -->
+<!-- Главный баннер (девочка с мамой) -->
 <header class="hero">
     <div class="container">
         <h1 class="display-3 fw-bold mb-3">GreenBall</h1>
         <p class="lead fs-3 mb-4">Аренда и продажа зданий по всему Кыргызстану</p>
-        <p class="mb-4">Склады • Офисы • Магазины • Производственные помещения</p>
+        <p class="mb-4">Склады • Офисы • Магазины • Производственные помещения от реальных владельцев</p>
         <a href="#catalog" class="btn btn-light btn-lg px-5">Смотреть объявления</a>
         <a href="#sell" class="btn btn-outline-light btn-lg px-5 ms-3">Разместить своё здание</a>
     </div>
@@ -159,7 +176,7 @@
     </div>
 </section>
 
-<!-- Футер -->
+<!-- Футер с твоими контактами -->
 <footer class="text-white py-5">
     <div class="container text-center">
         <h4 class="mb-3">🌱 GreenBall</h4>
@@ -185,42 +202,10 @@
 <script>
 // Данные объявлений
 const buildings = [
-    { 
-        id:1, 
-        title:"Склад 1200 м² в Бишкеке", 
-        price:4500000, 
-        area:1200, 
-        type:"rent", 
-        city:"Бишкек",
-        image: "https://picsum.photos/id/1015/400/250"
-    },
-    { 
-        id:2, 
-        title:"Офисное здание 3 этажа в Оше", 
-        price:18500000, 
-        area:950, 
-        type:"sale", 
-        city:"Ош",
-        image: "https://picsum.photos/id/106/400/250"
-    },
-    { 
-        id:3, 
-        title:"Торговое помещение 280 м²", 
-        price:1250000, 
-        area:280, 
-        type:"rent", 
-        city:"Бишкек",
-        image: "https://picsum.photos/id/201/400/250"
-    },
-    { 
-        id:4, 
-        title:"Производственный цех 2500 м²", 
-        price:42500000, 
-        area:2500, 
-        type:"sale", 
-        city:"Джалал-Абад",
-        image: "https://picsum.photos/id/133/400/250"
-    }
+    { id:1, title:"Склад 1200 м² в Бишкеке", price:4500000, area:1200, type:"rent", city:"Бишкек" },
+    { id:2, title:"Офисное здание 3 этажа", price:18500000, area:950, type:"sale", city:"Ош" },
+    { id:3, title:"Торговое помещение 280 м²", price:1250000, area:280, type:"rent", city:"Бишкек" },
+    { id:4, title:"Производственный цех 2500 м²", price:42500000, area:2500, type:"sale", city:"Джалал-Абад" }
 ];
 
 function renderListings() {
@@ -231,7 +216,7 @@ function renderListings() {
         const cardHTML = `
             <div class="col">
                 <div class="card h-100">
-                    <img src="${building.image}" class="card-img-top" alt="${building.title}">
+                    <img src="https://picsum.photos/400/250?building,${building.id}" class="card-img-top" alt="${building.title}">
                     <div class="card-body">
                         <span class="badge bg-success mb-2">${building.type === 'rent' ? 'Аренда' : 'Продажа'}</span>
                         <h5 class="card-title">${building.title}</h5>
