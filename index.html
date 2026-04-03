@@ -11,8 +11,8 @@
             background-color: #f8f9fa;
         }
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
-                        url('https://picsum.photos/id/1015/1920/1080') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://i.imgur.com/ugp91.jpg') no-repeat center center;
             background-size: cover;
             color: white;
             padding: 160px 0;
@@ -62,7 +62,7 @@
     </div>
 </nav>
 
-<!-- Главный баннер с красивым пейзажем Кыргызстана -->
+<!-- Главный баннер — твоя фотография -->
 <header class="hero">
     <div class="container">
         <h1 class="display-3 fw-bold mb-3">GreenBall</h1>
@@ -73,7 +73,7 @@
     </div>
 </header>
 
-<!-- Остальная часть сайта (каталог, формы, футер) без изменений -->
+<!-- Каталог объявлений -->
 <section id="catalog" class="py-5">
     <div class="container">
         <h2 class="text-center mb-5">Актуальные предложения</h2>
@@ -81,6 +81,7 @@
     </div>
 </section>
 
+<!-- Разместить объявление -->
 <section id="sell" class="py-5 bg-white">
     <div class="container">
         <h2 class="text-center mb-4">Разместить объявление</h2>
@@ -125,6 +126,7 @@
     </div>
 </section>
 
+<!-- Оформить заказ -->
 <section id="order" class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Оформить заказ на аренду или покупку</h2>
@@ -155,6 +157,7 @@
     </div>
 </section>
 
+<!-- Футер -->
 <footer class="text-white py-5">
     <div class="container text-center">
         <h4 class="mb-3">🌱 GreenBall</h4>
@@ -178,12 +181,44 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Данные объявлений
+// Данные объявлений с реалистичными фото зданий
 const buildings = [
-    { id:1, title:"Склад 1200 м² в Бишкеке", price:4500000, area:1200, type:"rent", city:"Бишкек" },
-    { id:2, title:"Офисное здание 3 этажа", price:18500000, area:950, type:"sale", city:"Ош" },
-    { id:3, title:"Торговое помещение на рынке", price:1250000, area:280, type:"rent", city:"Бишкек" },
-    { id:4, title:"Производственный цех 2500 м²", price:42500000, area:2500, type:"sale", city:"Джалал-Абад" }
+    { 
+        id:1, 
+        title:"Склад 1200 м² в Бишкеке", 
+        price:4500000, 
+        area:1200, 
+        type:"rent", 
+        city:"Бишкек",
+        image: "https://picsum.photos/id/1015/400/250"
+    },
+    { 
+        id:2, 
+        title:"Офисное здание 3 этажа", 
+        price:18500000, 
+        area:950, 
+        type:"sale", 
+        city:"Ош",
+        image: "https://picsum.photos/id/106/400/250"
+    },
+    { 
+        id:3, 
+        title:"Торговое помещение 280 м²", 
+        price:1250000, 
+        area:280, 
+        type:"rent", 
+        city:"Бишкек",
+        image: "https://picsum.photos/id/201/400/250"
+    },
+    { 
+        id:4, 
+        title:"Производственный цех 2500 м²", 
+        price:42500000, 
+        area:2500, 
+        type:"sale", 
+        city:"Джалал-Абад",
+        image: "https://picsum.photos/id/133/400/250"
+    }
 ];
 
 function renderListings() {
@@ -194,7 +229,7 @@ function renderListings() {
         const cardHTML = `
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://picsum.photos/400/250?building,${building.id}" class="card-img-top" alt="${building.title}">
+                    <img src="${building.image}" class="card-img-top" alt="${building.title}">
                     <div class="card-body">
                         <span class="badge bg-success mb-2">${building.type === 'rent' ? 'Аренда' : 'Продажа'}</span>
                         <h5 class="card-title">${building.title}</h5>
